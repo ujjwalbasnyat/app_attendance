@@ -2,20 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Primary Colors */
+  --color-primary: #3B82F6; /* Indigo */
+  --color-secondary: #22C55E; /* Sky Blue */
+  --color-accent: #DC2626; /* Emerald */
+
+  /* Neutral Colors */
+  --color-background: #F3F4F6; /* Light Gray */
+  --color-text: #1F2937; /* Dark Gray */
+
+  /* Additional Colors (if needed) */
+  --color-error: #DC2626; /* Red for error messages */
+  --color-warning: #FBBF24; /* Yellow for warnings */
+  --color-success: #22C55E; /* Green for success */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif; /* Optional: Replace with your preferred font */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary);
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-accent);
+}
+
+input, textarea {
+  border: 1px solid var(--color-secondary);
+  padding: 8px;
+  border-radius: 4px;
 }
