@@ -1,9 +1,12 @@
 import React from 'react'
 import StudentCard from './cards/studentcard'
+import AdminPanel from './cards/adminpanel'
 
 const Herosection = () => {
   return (
     <div className='p-4 flex flex-col gap-5'>
+
+        <AdminPanel/>
         <StudentCard person = {{
             name: "Kapil Ghimire",
             imgId: "K",

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { MdOutlineAdd } from "react-icons/md";
 import { CgSearch } from "react-icons/cg";
+import Link from "next/link";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +46,9 @@ function Header() {
           {/* Add Student Button */}
           <button className="bg-secondary text-white py-2 px-4 rounded-lg hover:bg-accent  flex item-center justify-between">
             <MdOutlineAdd className="text-xl"/>
-            <div>
+            <Link href="/root/addstudent" className="text-white">
             Add Student
-            </div>
+            </Link>
           </button>
 
           {/* Profile (Not Button) */}
