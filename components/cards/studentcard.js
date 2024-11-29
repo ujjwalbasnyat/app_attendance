@@ -1,37 +1,61 @@
+'use client'
+import React, { useEffect, useState } from 'react'
+import { collection, getDocs } from "firebase/firestore";
 import Link from 'next/link'
-import React from 'react'
+import { db } from '@/app/firebase/config';
 
+const StudentCard = () => {
+    const [students, setStudents] = useState([]);
 
-const StudentCard = ({person}) => {
-  return (
-    <Link href= "#" className='bg-primary p-4 rounded-md text-md text-white'>
-        <div className='flex items-center justify-between'>
-            <div>
-                {person.name}
-            </div>
-            <div class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center text-xl font-bold">
-                {person.imgId}
-            </div>
+    useEffect(() => {
+        const fetchStudents = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, 'students'));
+                const studentData = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setStudents(studentData);
+            } catch (error) {
+                console.error("Error fetching student data", error);
+            }
+        };
+        fetchStudents();
+    }, []);
+
+    return (
+        <div className=''>
+            {students.length > 0 ? (
+                students.map((student) => (
+                    <Link key={student.id} href="#" >
+                        <div className='bg-primary my-4 p-6 rounded-md text-md text-white '>
+                            <div className='flex item-center justify-between'>
+                            <div className=''>
+                                <div className='flex item-center justify-between '>
+                                    <p className=''>Student name: {student.name}</p>
+                                    <div>Profile</div>
+                                </div>
+                                <div className='flex flex-col item-center justify-center'>
+                                <p>Standard: {student.level}</p>
+                                <p>Institute: {student.instituteName}</p>
+                                <p>Contact: {student.phone}</p>
+                                <p>Starting date : {student.startingDate}</p>
+                                </div>
+                                <div className='flex justify-between gap-10 item-center'>
+                                    <div>Present Days: 0</div>
+                                    <div>Absent Days: 0</div>
+                                    <div>Total Days: 0</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </Link>
+                ))
+            ) : (
+                <p>No student found.</p>
+            )}
         </div>
-        <div>
-            Level: {person.standard}
-        </div>
-        <div>
-            {person.schoolName}
-        </div>
-        <div className='flex items-center justify-between'>
-        <div>
-            Present Day:{person.presentDay}
-        </div>
-        <div>
-            Absent Day: {person.absentDay}
-        </div>
-        <div>
-            Total Day:{person.totalDay}
-        </div>
-        </div>
-    </Link>
-  )
+    );
 }
 
-export default StudentCard
+export default StudentCard;

@@ -11,7 +11,7 @@ function Header() {
     <nav className="bg-primary  p-4 sticky top-0 ">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* App Name (Top Left) */}
-        <div className="text-xl font-semibold text-white">AutoAttend</div>
+        <Link href="/root" className="text-xl font-semibold text-white">AutoAttend</Link>
 
         {/* Hamburger Icon (Visible on Small Screens) */}
         <div className="sm:hidden flex items-center">
@@ -52,7 +52,7 @@ function Header() {
           </button>
 
           {/* Profile (Not Button) */}
-          <div class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center text-xl font-bold">
+          <div className="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center text-xl font-bold">
                 UB
             </div>
         </div>
