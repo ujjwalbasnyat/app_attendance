@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { collection, getDocs } from "firebase/firestore";
 import Link from 'next/link'
 import { db } from '@/app/firebase/config';
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BiEdit } from "react-icons/bi";
 
 const StudentCard = () => {
     const [students, setStudents] = useState([]);
@@ -36,9 +38,9 @@ const StudentCard = () => {
                                     <div>Profile</div>
                                 </div>
                                 <div className='flex flex-col item-center justify-center'>
-                                <p>Standard: {student.level}</p>
-                                <p>Institute: {student.instituteName}</p>
-                                <p>Contact: {student.phone}</p>
+                                <p>Class {student.level}</p>
+                                <p>{student.instituteName}</p>
+                                <p>{student.phone}</p>
                                 <p>Starting date : {student.startingDate}</p>
                                 </div>
                                 <div className='flex justify-between gap-10 item-center'>
@@ -48,11 +50,17 @@ const StudentCard = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <div className='flex item-center justify-end text-2xl text-accent gap-5'>
+                            <RiDeleteBinLine className='hover:text-white'/>
+                            <BiEdit className='hover:text-white'/>
+                        </div>
+
                         </div>
                     </Link>
                 ))
             ) : (
-                <p>No student found.</p>
+                <p className='text-accent'>No student record found.</p>
             )}
         </div>
     );

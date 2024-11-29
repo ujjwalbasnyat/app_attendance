@@ -11,7 +11,7 @@ function Header() {
     <nav className="bg-primary  p-4 sticky top-0 ">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* App Name (Top Left) */}
-        <Link href="/root" className="text-xl font-semibold text-white">AutoAttend</Link>
+        <Link href="/root" className="text-xl font-semibold text-white">Tuitionary</Link>
 
         {/* Hamburger Icon (Visible on Small Screens) */}
         <div className="sm:hidden flex items-center">
@@ -41,10 +41,10 @@ function Header() {
             placeholder="Search student..."
             className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-primary "
           />
-          <button className="bg-secondary rounded-md"><CgSearch/></button>
+          <button className="bg-accent hover:bg-secondary rounded-md"><CgSearch/></button>
 
           {/* Add Student Button */}
-          <button className="bg-secondary text-white py-2 px-4 rounded-lg hover:bg-accent  flex item-center justify-between">
+          <button className="bg-accent text-white py-2 px-4 rounded-lg hover:bg-secondary  flex item-center justify-between">
             <MdOutlineAdd className="text-xl"/>
             <Link href="/root/addstudent" className="text-white">
             Add Student
