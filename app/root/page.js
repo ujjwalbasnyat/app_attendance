@@ -1,9 +1,9 @@
-import Herosection from "@/components/herosection";
+
 
 export default function Rootpage() {
 	return (
 		<div>
-			<Herosection />
+			root ko home page.
 		</div>
 	);
 }

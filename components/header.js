@@ -3,6 +3,8 @@ import { useState } from "react";
 import { MdOutlineAdd } from "react-icons/md";
 import { CgSearch } from "react-icons/cg";
 import Link from "next/link";
+import { IoMdMenu } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,25 +13,13 @@ function Header() {
     <nav className="bg-primary  p-4 sticky top-0 ">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* App Name (Top Left) */}
-        <Link href="/root" className="text-xl font-semibold text-white">Tuitionary</Link>
+        <Link href="/" className="text-xl font-semibold text-white">Tuitionary</Link>
 
         {/* Hamburger Icon (Visible on Small Screens) */}
         <div className="sm:hidden flex items-center">
           <button onClick={() => setIsOpen(!isOpen)}>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
+            <IoMdMenu style={{width:20, height:20}}/>
+            
           </button>
         </div>
 
@@ -75,20 +65,7 @@ function Header() {
             className="absolute top-4 right-4"
             onClick={() => setIsOpen(false)}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
+            <RxCross1 style={{width:20, height:20}}/>
           </button>
 
           {/* Search Bar */}
@@ -100,7 +77,9 @@ function Header() {
 
           {/* Add Student Button */}
           <button className="bg-secondary text-white py-2 px-4 rounded-lg hover:bg-accent focus:ring-2 focus:ring-accent w-full">
+          <Link href="/root/addstudent" className="text-white">
             Add Student
+            </Link>
           </button>
 
           {/* Profile (Not Button) */}
